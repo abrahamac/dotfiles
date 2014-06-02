@@ -1,0 +1,14 @@
+[user]
+	name = abrahamac
+	email = abrahamac@gmail.com
+[http]
+	sslVerify = false
+[pull]
+	rebase = true
+[push]
+	default = simple
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	ls = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(reset) %C(auto)%d%C(reset) %C(white)%s%C(reset) %C(green)(%ar)%C(reset) - %C(cyan)%an%C(reset)' --all
