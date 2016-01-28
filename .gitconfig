@@ -1,6 +1,6 @@
 [user]
-	name = abrahamac
-	email = asdf@asdf.com
+	name = name 
+	email = email@email.com
 [http]
 	sslVerify = false
 [pull]
@@ -11,4 +11,11 @@
 	st = status
 	co = checkout
 	ci = commit
-	ls = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(reset) %C(auto)%d%C(reset) %C(white)%s%C(reset) %C(green)(%ar)%C(reset) - %C(cyan)%an%C(reset)' --all
+	la = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(reset) %C(auto)%d%C(reset) %C(white)%s%C(reset) %C(green)(%ar)%C(reset) - %C(cyan)%an%C(reset)' --all
+        ls = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(reset) %C(auto)%d%C(reset) %C(white)%s%C(reset) %C(green)(%ar)%C(reset) - %C(cyan)%an%C(reset)'
+        #list file names along with the changes
+        fc = log --stat
+[fetch]
+        prune = true
+[include]
+    	path = ~/.gitconfig.local
