@@ -1,9 +1,9 @@
 let mapleader = "\<Space>"
 
-nnoremap <leader>cp :CtrlP<CR>
+nnoremap <leader>ev :tabnew $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+noremap <leader>cp :CtrlP<CR>
 nnoremap <leader>cph :help ctrlp-commands<CR>
-
-" set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 set nocompatible
 filetype off
