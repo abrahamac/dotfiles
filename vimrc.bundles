@@ -1,0 +1,28 @@
+set nocompatible
+filetype off
+
+" NERDTree on open
+" let g:nerdtree_tabs_open_on_console_startup=1
+
+" set Runtime path to inc Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+"
+"this is the call to begin the Vundle Plugin Opperation
+call vundle#begin()
+
+" Vundle managing vundle
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tmuxinator/tmuxinator'
+Plugin 'jistr/vim-nerdtree-tabs.git'
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call vundle#end()
+
+filetype plugin indent on
+
