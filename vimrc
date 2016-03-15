@@ -20,6 +20,29 @@ nnoremap <leader>pc :PluginClean<CR>
 nnoremap <leader><Right> :tabnext<CR>
 nnoremap <leader><Left> :tabprevious<CR>
 
+" Use 2 spaces for all indentation
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set number
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" set dot for tab and tailing spaces
+set list lcs=trail:·,tab:»·
+
+" set color
+highlight ColorColumn ctermbg=black
+call matchadd('ColorColumn', '\%81v', 100) "set column nr
+
+" Always use vertical diffs
+set diffopt+=vertical
+
+set history=1000
+set undolevels=1000
+
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
