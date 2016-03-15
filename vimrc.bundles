@@ -15,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-rails'
 Plugin 'tmuxinator/tmuxinator'
 Plugin 'jistr/vim-nerdtree-tabs.git'
 
