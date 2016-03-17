@@ -20,6 +20,10 @@ nnoremap <leader>pc :PluginClean<CR>
 nnoremap <leader><Right> :tabnext<CR>
 nnoremap <leader><Left> :tabprevious<CR>
 
+" Custom Vim Copy/Paste
+vmap <leader>c :w! /tmp/vitmp<CR>
+nmap <leader>p :r! cat /tmp/vitmp<CR>
+
 " Use 2 spaces for all indentation
 set tabstop=2
 set shiftwidth=2
