@@ -24,6 +24,11 @@ nnoremap <leader><Left> :tabprevious<CR>
 vmap <leader>c :w! /tmp/vitmp<CR>
 nmap <leader>p :r! cat /tmp/vitmp<CR>
 
+" powerline fonts for status bar icons
+let g:airline_powerline_fonts = 1
+
+nmap <F8> :TagbarToggle<CR>
+
 " Use 2 spaces for all indentation
 set tabstop=2
 set shiftwidth=2

@@ -18,6 +18,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-rails'
 Plugin 'tmuxinator/tmuxinator'
 Plugin 'jistr/vim-nerdtree-tabs.git'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'majutsushi/tagbar'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
