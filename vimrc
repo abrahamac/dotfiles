@@ -27,7 +27,9 @@ nmap <leader>p :r! cat /tmp/vitmp<CR>
 " powerline fonts for status bar icons
 let g:airline_powerline_fonts = 1
 
-nmap <F8> :TagbarToggle<CR>
+" Tagbar shortcuts
+nnoremap <F8> :TagbarToggle<CR>
+nnoremap <leader>t :TagbarOpen fjc<CR>
 
 " Use 2 spaces for all indentation
 set tabstop=2
