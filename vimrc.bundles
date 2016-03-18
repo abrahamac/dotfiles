@@ -6,7 +6,7 @@ filetype off
 
 " set Runtime path to inc Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-"
+
 "this is the call to begin the Vundle Plugin Opperation
 call vundle#begin()
 

@@ -24,9 +24,6 @@ nnoremap <leader><Left> :tabprevious<CR>
 vmap <leader>c :w! /tmp/vitmp<CR>
 nmap <leader>p :r! cat /tmp/vitmp<CR>
 
-" powerline fonts for status bar icons
-let g:airline_powerline_fonts = 1
-
 " Tagbar shortcuts
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap <leader>t :TagbarOpen fjc<CR>
@@ -37,7 +34,7 @@ set shiftwidth=2
 set expandtab
 set number
 
-" Open new split panes to right and bottom, which feels more natural
+" Open new split panes to right and bottom
 set splitbelow
 set splitright
 
@@ -57,4 +54,7 @@ set undolevels=1000
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
+
+" powerline fonts for status bar icons
+let g:airline_powerline_fonts = 1
 
