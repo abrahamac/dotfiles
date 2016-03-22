@@ -57,4 +57,7 @@ endif
 
 " powerline fonts for status bar icons
 let g:airline_powerline_fonts = 1
-
+" tagbar by default opens on the right
+let g:tagbar_left = 1
+" so that status line appear all the time.
+set laststatus=2
