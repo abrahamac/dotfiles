@@ -26,6 +26,9 @@ nnoremap <leader>tc :tabclose<CR>
 vmap <leader>c :w! /tmp/vitmp<CR>
 nmap <leader>p :r! cat /tmp/vitmp<CR>
 
+" Custom Vim copy and open in firefox
+vmap <leader>f :w! /tmp/vitmp<ESC>:!firefox /tmp/vitmp<CR>
+
 " Tagbar shortcuts
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap <leader>t :TagbarOpen fjc<CR>
