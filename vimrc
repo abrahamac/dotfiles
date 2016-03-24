@@ -36,6 +36,9 @@ set shiftwidth=2
 set expandtab
 set number
 
+" Enable mouse use in all modes
+set mouse=a
+
 " Open new split panes to right and bottom
 set splitbelow
 set splitright
