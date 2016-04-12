@@ -19,8 +19,8 @@ nnoremap <leader>pc :PluginClean<CR>
 " Vim Tab
 nnoremap <leader><Right> :tabnext<CR>
 nnoremap <leader><Left> :tabprevious<CR>
-nnoremap <leader>tn :tabnew<CR>
-nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>n :tabnew<CR>
+nnoremap <leader>c :tabclose<CR>
 
 " Custom Vim Copy/Paste
 vmap <leader>c :w! /tmp/vitmp<CR>
