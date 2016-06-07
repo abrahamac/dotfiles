@@ -46,9 +46,6 @@ set mouse=a
 set splitbelow
 set splitright
 
-" set dot for tab and tailing spaces
-set list lcs=trail:·,tab:»·
-
 " set color
 highlight ColorColumn ctermbg=black
 call matchadd('ColorColumn', '\%81v', 100) "set column nr
@@ -69,3 +66,20 @@ let g:airline_powerline_fonts = 1
 let g:tagbar_left = 1
 " so that status line appear all the time.
 set laststatus=2
+
+" boost CtrlP - Start 
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
+" boost CtrlP - End
+
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = '_'
