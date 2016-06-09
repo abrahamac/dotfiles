@@ -67,6 +67,19 @@ let g:tagbar_left = 1
 " so that status line appear all the time.
 set laststatus=2
 
+" Settings for vim-color-solarized
+syntax enable
+set background=dark
+let g:solarized_termcolors=256 
+let g:solarized_termtrans=0 
+let g:solarized_degrade=0 
+let g:solarized_bold=1 
+let g:solarized_underline=1 
+let g:solarized_italic=1 
+let g:solarized_style="dark" 
+let g:solarized_contrast="normal"
+colorscheme solarized
+
 " boost CtrlP - Start 
 let g:ctrlp_use_caching = 0
 if executable('ag')
