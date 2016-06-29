@@ -18,6 +18,8 @@ export EDITOR='vim'
 alias tml='tmux list-sessions'
 alias tma='tmux attach -t $1'
 
+alias be='bundle exec'
+
 export LANG="en_US:en"
 
 eval `dircolors ~/.dir_colors`
