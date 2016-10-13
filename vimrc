@@ -96,3 +96,5 @@ endif
 
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = '_'
+
+set term=screen-256color
