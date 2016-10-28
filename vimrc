@@ -22,6 +22,9 @@ nnoremap <leader><Left> :tabprevious<CR>
 nnoremap <leader>n :tabnew<ESC>:CtrlP<CR>
 nnoremap <leader>c :tabclose<CR>
 
+" Ggrep whole project for the word under cursor
+nnoremap <leader>s :Ggrep '<cword>'<CR>
+
 " Custom Vim Copy/Paste
 vmap <leader>c :w! /tmp/vitmp<CR>
 nmap <leader>p :r! cat /tmp/vitmp<CR>
@@ -70,14 +73,6 @@ set laststatus=2
 " Settings for vim-color-solarized
 syntax enable
 set background=dark
-let g:solarized_termcolors=256 
-let g:solarized_termtrans=0 
-let g:solarized_degrade=0 
-let g:solarized_bold=1 
-let g:solarized_underline=1 
-let g:solarized_italic=1 
-let g:solarized_style="dark" 
-let g:solarized_contrast="normal"
 colorscheme solarized
 
 " boost CtrlP - Start 
@@ -97,4 +92,3 @@ endif
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = '_'
 
-set term=screen-256color
