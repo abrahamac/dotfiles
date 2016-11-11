@@ -70,6 +70,8 @@ set term=xterm-256color
 let g:tagbar_left = 1
 " so that status line appear all the time.
 set laststatus=2
+" make vim use 88 or 256 colors
+set t_Co=256
 
 " Settings for vim-color-solarized
 syntax enable
