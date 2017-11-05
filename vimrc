@@ -1,5 +1,8 @@
 let mapleader = "\<Space>"
 
+" Add Matchit
+runtime macros/matchit.vim
+
 " Vim
 nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -91,6 +94,28 @@ else
     \ }
 endif
 " boost CtrlP - End
+
+" Syntastic - Start
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" let g:loaded_syntastic_ruby_reek_checker = 1
+let g:syntastic_ruby_checkers = ['mri', 'reek', 'flog', 'rubylint']
+" let g:syntastic_ruby_mri_exec = '/usr/local/rvm/rubies/ruby-2.2.4/bin/ruby'
+" let g:syntastic_ruby_exec = '/usr/local/rvm/rubies/ruby-2.2.4/bin/ruby'
+" Syntastic - End 
+
+" YouCompleteMe - Start
+" let g:ycm_semantic_triggers =  {
+"       \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+"       \   'ruby' : ['.', '::']
+"   }
+" YouCompleteMe - End
 
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = '_'
