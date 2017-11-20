@@ -120,3 +120,43 @@ let g:syntastic_ruby_checkers = ['mri', 'reek', 'flog', 'rubylint']
 let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = '_'
 
+augroup rubypath
+
+	autocmd!
+
+	autocmd FileType ruby setlocal suffixesadd+=.rb
+  autocmd FileType ruby setlocal path+=/usr/local/rvm/rubies/ruby-2.2.4/bin/ruby
+  autocmd FileType ruby set omnifunc=syntaxcomplete#Complete
+  autocmd FileType ruby let g:rubycomplete_buffer_loading = 1
+  autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
+  autocmd FileType ruby let g:rubycomplete_rails = 1
+augroup END
+
+set nocompatible      " We're running Vim, not Vi!
+syntax on             " Enable syntax highlighting
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+
+function! Smart_TabComplete()
+  let line = getline('.')                         " current line
+
+  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
+                                                  " line to one character right
+                                                  " of the cursor
+  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+  if (strlen(substr)==0)                          " nothing to match on empty string
+    return "\<tab>"
+  endif
+  let has_period = match(substr, '\.') != -1      " position of period, if any
+  let has_slash = match(substr, '\/') != -1       " position of slash, if any
+  if (!has_period && !has_slash)
+    return "\<C-X>\<C-P>"                         " existing text matching
+  elseif ( has_slash )
+    return "\<C-X>\<C-F>"                         " file matching
+  else
+    return "\<C-X>\<C-]>"                         " plugin matching
+  endif
+endfunction
+
+inoremap <tab> <c-r>=Smart_TabComplete()<CR>
