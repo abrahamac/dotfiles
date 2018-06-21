@@ -6,6 +6,9 @@ runtime macros/matchit.vim
 " Vim
 nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>rl oRails.log.info ""<ESC>i
+nnoremap <leader>jc oconsole.log '';<ESC>hi
+nnoremap <leader>ja oalert('');<ESC>hhi
 
 " Ctrl-P
 nnoremap <leader>cp :CtrlP<CR>
