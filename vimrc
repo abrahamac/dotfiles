@@ -28,6 +28,9 @@ nnoremap <leader><Left> :tabprevious<CR>
 nnoremap <leader>n :tabnew<ESC>:CtrlP<CR>
 nnoremap <leader>c :tabclose<CR>
 
+" Vim number toggle
+nnoremap <leader>l :set rnu!<CR>
+
 " Ggrep whole project for the word under cursor
 nnoremap <leader>s :Ggrep '<cword>'<CR>
 
@@ -71,6 +74,7 @@ endif
 
 " powerline fonts for status bar icons
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 set term=xterm-256color
 " tagbar by default opens on the right
 let g:tagbar_left = 1
