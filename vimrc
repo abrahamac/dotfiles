@@ -16,7 +16,9 @@ nnoremap <leader>cph :help ctrlp-commands<CR>
 
 " NerdTree
 nnoremap <leader>nt :NERDTree<CR>
+map <C-n> :NERDTreeToggle<CR>
 nnoremap <leader>ntt :NERDTreeToggle<CR>
+nnoremap <leader>r :NERDTreeFind<CR>
 
 " Vundle
 nnoremap <leader>pi :PluginInstall<CR>
@@ -76,10 +78,13 @@ endif
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 set term=xterm-256color
+
 " tagbar by default opens on the right
 let g:tagbar_left = 1
+
 " so that status line appear all the time.
 set laststatus=2
+
 " make vim use 88 or 256 colors
 set t_Co=256
 
@@ -100,70 +105,80 @@ else
     \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
     \ }
 endif
-" boost CtrlP - End
 
 " Syntastic - Start
+"set laststatus=2
+"set statusline+=%F
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" sets the title of the window to the current opened file
+set title
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" let g:loaded_syntastic_ruby_reek_checker = 1
 let g:syntastic_ruby_checkers = ['mri', 'reek', 'flog', 'rubylint']
-" let g:syntastic_ruby_mri_exec = '/usr/local/rvm/rubies/ruby-2.2.4/bin/ruby'
-" let g:syntastic_ruby_exec = '/usr/local/rvm/rubies/ruby-2.2.4/bin/ruby'
-" Syntastic - End 
 
-" YouCompleteMe - Start
-" let g:ycm_semantic_triggers =  {
-"       \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-"       \   'ruby' : ['.', '::']
-"   }
-" YouCompleteMe - End
+" NerdTree Arrows
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
-let g:NERDTreeDirArrowExpandable = '>'
-let g:NERDTreeDirArrowCollapsible = '_'
+" Automatically open NerdTree when no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-augroup rubypath
-
-	autocmd!
-
-	autocmd FileType ruby setlocal suffixesadd+=.rb
-  autocmd FileType ruby setlocal path+=/usr/local/rvm/rubies/ruby-2.2.4/bin/ruby
-  autocmd FileType ruby set omnifunc=syntaxcomplete#Complete
-  autocmd FileType ruby let g:rubycomplete_buffer_loading = 1
-  autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
-  autocmd FileType ruby let g:rubycomplete_rails = 1
-augroup END
-
-set nocompatible      " We're running Vim, not Vi!
-syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
 
-function! Smart_TabComplete()
-  let line = getline('.')                         " current line
+"set tags+=/apps/rails_apps/bs/tags
+"set complete=i,.,b,w,u,U,]
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
 
-  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
-                                                  " line to one character right
-                                                  " of the cursor
-  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  if (strlen(substr)==0)                          " nothing to match on empty string
-    return "\<tab>"
-  endif
-  let has_period = match(substr, '\.') != -1      " position of period, if any
-  let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  if (!has_period && !has_slash)
-    return "\<C-X>\<C-P>"                         " existing text matching
-  elseif ( has_slash )
-    return "\<C-X>\<C-F>"                         " file matching
-  else
-    return "\<C-X>\<C-]>"                         " plugin matching
-  endif
-endfunction
+" AutoComplPop like behavior.
+let g:neocomplcache_enable_auto_select = 1
 
-inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+let g:neocomplete#enable_auto_select = 1
+
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '/apps/rails_apps/learn-rails/.git/tags',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+if !exists('g:neocomplete#sources#member#input_patterns')
+  let g:neocomplete#sources#member#input_patterns = {}
+endif
+let g:neocomplete#sources#member#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+if !exists('g:neocomplete#sources')
+  let g:neocomplete#sources = {}
+endif
+let g:neocomplete#sources._ = ['buffer']
+let g:neocomplete#sources.ruby = ['dictionary']
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['ruby'] = '[^. *\t]\.\w*\|\h\w*::'
+

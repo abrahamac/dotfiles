@@ -1,19 +1,17 @@
 set nocompatible
 filetype off
 
-" NERDTree on open
-" let g:nerdtree_tabs_open_on_console_startup=1
-
 " set Runtime path to inc Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-"this is the call to begin the Vundle Plugin Opperation
+" this is the call to begin the Vundle Plugin Opperation
 call vundle#begin()
 
 " Vundle managing vundle
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
+Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-rails'
 Plugin 'jistr/vim-nerdtree-tabs.git'
@@ -28,8 +26,8 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'kana/vim-textobj-user'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'puremourning/YouCompleteMe'
+"Plugin 'vim-scripts/AutoComplPop.git'
+Plugin 'majutsushi/ctags'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
