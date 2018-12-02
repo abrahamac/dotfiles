@@ -182,3 +182,6 @@ endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 let g:neocomplete#keyword_patterns['ruby'] = '[^. *\t]\.\w*\|\h\w*::'
 
+" Search only in current buffers directory
+" Investigate how to pass parameter here
+" :grep foo %:h/*
