@@ -88,6 +88,7 @@ set laststatus=2
 " make vim use 88 or 256 colors
 set t_Co=256
 
+filetype plugin indent on
 " Settings for vim-color-solarized
 syntax enable
 set background=dark
@@ -131,7 +132,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 filetype on           " Enable filetype detection
-
+" let g:tern#is_show_argument_hints_enabled = 1
 "set tags+=/apps/rails_apps/bs/tags
 "set complete=i,.,b,w,u,U,]
 let g:acp_enableAtStartup = 0
@@ -145,6 +146,21 @@ let g:neocomplcache_enable_auto_select = 1
 
 let g:neocomplete#enable_auto_select = 1
 
+" let g:neocomplete#sources#omni#functions.javascript = [
+"         \   'jspc#omni',
+"         \   'tern#Complete',
+"         \ ]
+
+augroup cherianabraham
+  autocmd!
+
+  autocmd BufNewFile,BufRead *.ru,*.rb,*.html.erb setfiletype ruby
+  autocmd BufNewFile,BufRead *.css.erb,*.spriter setfiletype css
+  autocmd BufNewFile,BufRead *.mkd,*.md,*.markdown setfiletype markdown
+  autocmd BufNewFile,BufRead *.json,*.js setfiletype javascript
+augroup END
+
+set omnifunc=syntaxcomplete#Complete
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 2
 
@@ -156,10 +172,12 @@ let g:neocomplete#sources#dictionary#dictionaries = {
         \ }
 
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
@@ -167,7 +185,7 @@ endif
 let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 if !exists('g:neocomplete#sources#member#input_patterns')
   let g:neocomplete#sources#member#input_patterns = {}
-endif
+ndif
 let g:neocomplete#sources#member#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 if !exists('g:neocomplete#sources')
   let g:neocomplete#sources = {}
