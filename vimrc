@@ -47,6 +47,9 @@ vmap <leader>f :w! /tmp/vitmp<ESC>:!firefox /tmp/vitmp<CR>
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap <leader>t :TagbarOpen fjc<CR>
 
+" Save in insert mode<F2>
+inoremap <F2> <c-o>:w<cr>
+
 " Use 2 spaces for all indentation
 set tabstop=2
 set shiftwidth=2
