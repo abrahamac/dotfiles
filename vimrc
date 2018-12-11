@@ -47,6 +47,9 @@ vmap <leader>f :w! /tmp/vitmp<ESC>:!firefox /tmp/vitmp<CR>
 nnoremap <F8> :TagbarToggle<CR>
 nnoremap <leader>t :TagbarOpen fjc<CR>
 
+" https://stackoverflow.com/questions/3446320/in-vim-how-to-map-save-to-ctrl-s
+imap <F2> <Esc>:w<CR>a
+
 " Use 2 spaces for all indentation
 set tabstop=2
 set shiftwidth=2
@@ -185,7 +188,7 @@ endif
 let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 if !exists('g:neocomplete#sources#member#input_patterns')
   let g:neocomplete#sources#member#input_patterns = {}
-ndif
+endif
 let g:neocomplete#sources#member#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 if !exists('g:neocomplete#sources')
   let g:neocomplete#sources = {}
