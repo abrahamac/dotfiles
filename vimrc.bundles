@@ -31,6 +31,7 @@ Plugin 'kana/vim-textobj-user'
 "Plugin 'vim-scripts/AutoComplPop.git'
 Plugin 'majutsushi/ctags'
 Plugin 'marijnh/tern_for_vim'
+Plugin 'szw/vim-maximizer'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
