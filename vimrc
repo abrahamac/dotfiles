@@ -4,6 +4,7 @@ let mapleader = "\<Space>"
 runtime macros/matchit.vim
 
 " Vim
+nnoremap <leader>w <C-w>
 nnoremap <leader>ev :tabnew $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>rl oRails.log.info ""<ESC>i
@@ -91,10 +92,17 @@ set laststatus=2
 " make vim use 88 or 256 colors
 set t_Co=256
 
+" set no errorbell, visual bell. set in gui mode 
+" only if vim not compiled with +autocmd feature.
+set noeb vb t_vb=
+if has('autocmd')
+  au GUIEnter * set vb t_vb=
+endif
+
 filetype plugin indent on
 " Settings for vim-color-solarized
 syntax enable
-set background=dark
+set bg=dark
 colorscheme solarized
 
 " boost CtrlP - Start 
