@@ -17,3 +17,6 @@
         prune = true
 [include]
     	path = ~/.gitconfig.local
+[user]
+	name = Cherian Abraham
+	email = abrahamac@gmail.com
