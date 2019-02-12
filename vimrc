@@ -11,6 +11,11 @@ nnoremap <leader>rl oRails.log.info ""<ESC>i
 nnoremap <leader>jc oconsole.log '';<ESC>hi
 nnoremap <leader>ja oalert('');<ESC>hhi
 
+" vim escape
+inoremap <leader>e <ESC>
+nnoremap <leader>j <C-f>
+nnoremap <leader>k <C-b>
+
 " Ctrl-P
 nnoremap <leader>cp :CtrlP<CR>
 nnoremap <leader>cph :help ctrlp-commands<CR>
@@ -33,6 +38,9 @@ nnoremap <leader>c :tabclose<CR>
 
 " Vim number toggle
 nnoremap <leader>l :set rnu!<CR>
+
+" Vim maximizer toggle
+nnoremap <leader>z :MaximizerToggle<CR>
 
 " Ggrep whole project for the word under cursor
 nnoremap <leader>s :Ggrep '<cword>'<CR>
