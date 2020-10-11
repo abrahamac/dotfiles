@@ -5,7 +5,7 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-export PS1='\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33m\]\w \[\033[47m\]$(echo $(__git_ps1 "%s") | cut -c1-16) \[\033[m\$ '
+export PS1='\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33m\]\w \[\033[47m\]$(echo $(__git_ps1 "%s") | cut -c1-16)\[\033[m \$ '
 
 #home needs to be set to call this from root 
 home_dir=/home/centos
