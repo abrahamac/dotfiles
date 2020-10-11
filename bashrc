@@ -5,11 +5,14 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33m\]\w\[\033[m\]\$ "
+export PS1='\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33m\]\w \[\033[47m\]$(echo $(__git_ps1 "%s") | cut -c1-16) \[\033[m\$ '
+
+#home needs to be set to call this from root 
+home_dir=/home/centos
 
 source /etc/bash_completion.d/git 2> /dev/null
-source ~/git-prompt.sh
-export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+source ${home_dir}/git-prompt.sh
+#export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 alias console="pry -r ./config/environment.rb"
 
@@ -24,13 +27,14 @@ alias be='bundle exec'
 
 export LANG="en_US.utf8"
 
-eval `dircolors ~/.dir_colors`
+eval `dircolors ${home_dir}/.dir_colors`
 
-complete -W "$(<~/.ssh/config)" ssh
+complete -W "$(<${home_dir}/.ssh/config)" ssh
 
 # Source global definitions
-if [ -f ~/.bashrc.local ]; then
-	. ~/.bashrc.local
+if [ -f ${home_dir}/.bashrc.local ]; then
+	. ${home_dir}/.bashrc.local
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=~/.local/bin:$PATH

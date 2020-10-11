@@ -8,15 +8,17 @@
 [alias]
 	st = status
 	co = checkout
-	ci = commit
+	cm = commit
 	la = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(reset) %C(auto)%d%C(reset) %C(white)%s%C(reset) %C(green)(%ar)%C(reset) - %C(cyan)%an%C(reset)' --all
-        ls = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(reset) %C(auto)%d%C(reset) %C(white)%s%C(reset) %C(green)(%ar)%C(reset) - %C(cyan)%an%C(reset)'
-        #list file names along with the changes
-        fc = log --stat
+  ls = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(red)%h%C(reset) %C(auto)%d%C(reset) %C(white)%s%C(reset) %C(green)(%ar)%C(reset) - %C(cyan)%an%C(reset)'
+  #list file names along with the changes
+  fc = log --stat
 [fetch]
         prune = true
 [include]
     	path = ~/.gitconfig.local
 [user]
 	name = Cherian Abraham
-	email = abrahamac@gmail.com
+	email = cabraham@navstar-inc.com
+[color]
+	ui = true
